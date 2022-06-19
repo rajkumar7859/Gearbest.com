@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./payment/payment.css">
+</head>
+
+<body>
+    <div id="logo">
+
+        <a href="landing.html"><img src="https://uidesign.gbtcdn.com/GB/images/promotion/2019/a_evan/Gearbest/logo_gearbest.png" alt="logo image"></a>
+
+        <div id="border">
+            <div id="div1">
+                <div class="payment">
+                    <h1>Payment Methods(s)</h1>
+                </div>
+
+                <div id="visa">
+                    <input id="radio" type="radio">
+                    <img class="card" src="https://uidesign.zafcdn.com/ZF/image/5376/20210323_visa.png" alt="">
+                    <img class="card" src="https://uidesign.zafcdn.com/ZF/image/checkout/20190816_12066/mastercard.png"
+                        alt="">
+                    <img class="card" src="https://uidesign.zafcdn.com/ZF/image/checkout/20190816_12066/discover.png"
+                        alt="">
+                    <img class="card" src="https://uidesign.zafcdn.com/ZF/image/checkout/20190816_12066/Diners-Club.png"
+                        alt="">
+                    <img class="card" src="https://uidesign.zafcdn.com/ZF/image/checkout/20190816_12066/maestro.png"
+                        alt="">
+
+                </div>
+                <form id="form">
+                    <input type="text" placeholder="Card Number" id="cardNum">
+
+                    <div class="select1">
+                        <select name="" class="tag">
+                            <option value="">Expiration Month</option>
+                            <option value="">01</option>
+                            <option value="">02</option>
+                            <option value="">03</option>
+                            <option value="">04</option>
+                            <option value="">05</option>
+                            <option value="">06</option>
+                            <option value="">07</option>
+                            <option value="">08</option>
+                            <option value="">09</option>
+                            <option value="">10</option>
+                            <option value="">11</option>
+                            <option value="">12</option>
+                        </select>
+                        <select name="" class="tag">
+                            <option value="">2023</option>
+                            <option value="">Expiration Year</option>
+                            <option value="">2024</option>
+                            <option value="">2025</option>
+                            <option value="">2026</option>
+                            <option value="">2027</option>
+                            <option value="">2028</option>
+                            <option value="">2029</option>
+                            <option value="">2030</option>
+                            <option value="">2031</option>
+                            <option value="">2032</option>
+                            <option value="">2033</option>
+                            <option value="">2034</option>
+                        </select>
+                    </div>
+                    <input type="text" placeholder="Security Code" id="cvv">
+                    <input type="text" placeholder="" value="Anu Pratap">
+                    <div class="bill">
+                        <div><span>
+                                <h2>Billing Address</h2>
+                                <a href="index.html"><h3>Edit</h3></a>
+                            </span></div>
+                        <p>Tollygunj,Kolkata,West Bengal, IN</p>
+                        <p>We recommend that the billing address you are submitting is the same as your card issuer has
+                            on file.</p>
+                    </div>
+                </form>
+                <div id="paypal">
+                    <input type="radio">
+                    <img src="https://uidesign.zafcdn.com/ZF/image/z_promo/20190422_9353/PayPal@2x.png" alt="">
+
+                </div>
+                <p>The safer easier way to pay</p>
+
+            </div>
+        </div>
+        <!-- /////END -->
+
+
+        <!-- 2ndpart -->
+
+        <div id="sideBorder">
+
+
+            <div id="div22">
+                <div id="pay">
+                    <div id="mybill">Your Bill:</div>
+                    <div id="order">
+                        <p>Order Number <br>22061600982912050242 <br>Shipping address <br> tollygunj, Kolkata, West
+                            Bengal, IN</p>
+
+                    </div>
+
+
+                    <!--<<<<<<<<<<<<<< Daynamic >>>>>>>>>>>>>>>>>>>>>>>-->
+                    <div class="grand">
+                        <p>Grand Total</p>
+                        <p class="price1">$116.00</p>
+                    </div>
+                    <!-- Daynamic<<<<<<<<<<<<<<<>>>>>>>>>>>>>>>>>>> -->
+                    <div class="grand">
+                        <p>Payable Amount</p>
+                        <p class="price2">$116.00</p>
+                    </div>
+                    <button id="btn" >PAY NOW</button>
+                </div>
+            </div>
+
+
+
+        </div>
+                         <!--Sec End -->
+
+
+        <!-- //lastpart -->
+
+        <div id="last">
+            <a href="index.html"><img src="https://uidesign.zafcdn.com/ZF/image/5376/20210408_gb_logos.png" alt=""></a>
+            <p>Every order you place with us is completely safe and secure.</p>
+        </div>
+
+        <!--lastpart end -->
+</body>
+
+
+</html>
+
+<script>
+    var Form = document.querySelector('#form');
+var Button = document.querySelector('#btn');
+
+Button.addEventListener('click', function() {
+   if(Form.cardNum.value.length != 16)
+   {
+
+       alert('Please enter a valid card number');
+   } 
+   else if(Form.cvv.value.length != 3) 
+   {
+
+       alert('Wrong CVV');
+   }
+   else {
+      alert('Payment Successful, Your Order is Placed');
+      
+      window.location.href="index.html"
+    }
+})
+
+
+
+        let replaceAdd=JSON.parse(localStorage.getItem("formdata"))
+        let replacePro=JSON.parse(localStorage.getItem("productdata"))
+        let gdPrice=JSON.parse(localStorage.getItem("gdPrice"))
+
+        let addRess=document.getElementById("order")
+        addRess.innerText=`Order no is :22061600982912050242 , Shipping address  ${replaceAdd.adress1},${replaceAdd.city},${replaceAdd.country}`
+        
+        
+        let fingdPric=document.querySelector(".price1").innerText=`$ ${gdPrice}`
+        let finpyPric=document.querySelector(".price2").innerText=`$ ${gdPrice}`
+        console.log(fingdPric);
+        console.log(finpyPric);
+
+
+</script>
